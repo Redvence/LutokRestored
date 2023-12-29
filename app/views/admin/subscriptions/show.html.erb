@@ -1,0 +1,12 @@
+<div class="W_ShowPost">
+<p style="color: green"><%= notice %></p>
+
+<%= render @subscription %>
+
+<div class="Edit">
+  <%= link_to "Редактировать", edit_admin_subscription_path(@subscription) %> |
+  <%= link_to "Обратно к подпискам", admin_subscriptions_path %>
+
+  <%= button_to "Удалить", [:admin, @subscription], method: :delete %>
+</div>
+</div>

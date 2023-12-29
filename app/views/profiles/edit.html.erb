@@ -1,0 +1,49 @@
+<div class="M_EditForm">
+<div class="A_Decoration"></div>
+<div class="M_Heading">
+../профиль
+</div>
+<div class="A_Heading2">
+Отредактируй профиль
+</div>
+  <%= form_with(model: @profile) do |form| %>
+    <% if @profile.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+        <ul>
+          <% @profile.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div>
+    <div class="custom-file-upload">
+
+      <%= form.file_field :avatar, id: "avatar-input"  %>
+      <%= label :avatar, 'Загрузить аватар', class: 'file-label' %>
+  </div>
+    </div>
+
+    <div>
+      <%= form.label :login, style: "display: block; margin-bottom: 16px;", class: "A_Heading3" %>
+      <%= form.text_field :login, class: "A_Input"%>
+    </div>
+
+    <div>
+      <%= form.label :username, style: "display: block; margin-bottom: 16px;", class: "A_Heading3" %>
+      <%= form.text_field :username, class: "A_Input" %>
+    </div>
+
+    <div>
+      <%= form.label :about, style: "display: block; margin-bottom: 16px;", class: "A_Heading3" %>
+      <%= form.text_area :about, class: "A_Input" %>
+    </div>
+
+    <div>
+    <%= form.submit class: "A_Button" %>
+    </div>
+  <% end %>
+
+</div>
